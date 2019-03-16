@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Chart</title>
+  <meta charset="UTF-8">
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript">
+   window.onload = function () {
+    
+    function addDataPoints() {
+  var chart = new CanvasJS.Chart("chart-container", {
+    theme: "theme1",//theme1
+    title:{
+      text: "Column Chart"              
+    },
+    animationEnabled: true,   
+    data: [              
+    {
+      // Change type to "bar", "area", "spline", "pie",etc.
+      type: "column",
+      dataPoints: [
+        { label: "Jan",  y:Number(document.getElementById('fielda').value)},
+        { label: "Feb", y:Number(document.getElementById("fieldb").value)},
+        { label: "Mar", y:Number(document.getElementById("fieldc").value)},
+        { label: "Apr",  y:Number(document.getElementById("fieldd").value)},
+        { label: "May",  y:Number(document.getElementById("fielde").value)},
+        {label: "June", y:Number(document.getElementById("fieldf").value)}
+      ]
+    }
+    ]
+  });
+  chart.render();
+}
+
+var renderButton = document.getElementById("renderButton");
+  renderButton.addEventListener("click",addDataPoints);
+}
+  </script>
+ <script type="text/javascript" src="js/jquery.js"></script>
+ <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+<body>
+  
+  <h1>Please enter data</h1>
+
+  <p>Datafield1:<input id="fielda" type="number"  step="any"></p>
+  <p>Datafield2:<input id="fieldb" type="number"  step="any"></p>
+  <p>Datafield3:<input id="fieldc" type="number"  step="any"></p>
+  <p>Datafield4:<input id="fieldd" type="number"  step="any"></p>
+  <p>Datafield5:<input id="fielde" type="number"  step="any"></p>
+  <p>Datafield6:<input id="fieldf" type="number"  step="any"></p>
+  <button id="renderButton"> Render</button>
+
+   <div id="chart-container">
+  
+</div>
+</body>
+</html>
